@@ -11,7 +11,6 @@ class App extends React.Component {
         };
     }
     addTask = (taskTodo) => {
-        console.log(taskTodo);
         let clonedTasks = [...this.state.tasks];
         clonedTasks = [
             { description: taskTodo, status: "To do" },
@@ -30,7 +29,11 @@ class App extends React.Component {
                     </h1>
                 </div>
                 <Form addTask={this.addTask} />
-                <List tasks={this.state.tasks} />
+                {this.state.tasks.map((task) => {
+                    return (
+                        <List task={task.description} status={task.status} />
+                    );
+                })}
             </div>
         );
     }
