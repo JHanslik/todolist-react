@@ -38,6 +38,7 @@ class List extends React.Component {
                             <select
                                 name="status"
                                 onChange={this.props.handleStatusChange}
+                                required
                             >
                                 <option value={this.props.status}>
                                     Select Status

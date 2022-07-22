@@ -8,6 +8,7 @@ class App extends React.Component {
         super();
         this.state = {
             tasks: [],
+            copyTasks: [],
         };
     }
     addTask = (taskTodo) => {
@@ -18,6 +19,7 @@ class App extends React.Component {
         ];
         this.setState({
             tasks: clonedTasks,
+            copyTasks: clonedTasks,
         });
     };
     deleteTask = (task) => {
@@ -43,6 +45,7 @@ class App extends React.Component {
         clonedTasks[index].description = e.target.value;
         this.setState({
             tasks: clonedTasks,
+            copyTasks: clonedTasks,
         });
     };
     handleStatusChange = (e, task) => {
@@ -51,6 +54,7 @@ class App extends React.Component {
         clonedTasks[index].status = e.target.value;
         this.setState({
             tasks: clonedTasks,
+            copyTasks: clonedTasks,
         });
     };
 
@@ -60,7 +64,29 @@ class App extends React.Component {
         clonedTasks[index].editing = false;
         this.setState({
             tasks: clonedTasks,
+            copyTasks: clonedTasks,
         });
+    };
+
+    taskFilter = (e) => {
+        this.setState(
+            {
+                tasks: this.state.copyTasks,
+            },
+            () => {
+                const clonedTasks = [...this.state.tasks];
+                let filteredTasks = clonedTasks.filter((task) => {
+                    return task.status === e.target.value;
+                });
+                e.target.value !== "All"
+                    ? this.setState({
+                          tasks: filteredTasks,
+                      })
+                    : this.setState({
+                          tasks: clonedTasks,
+                      });
+            }
+        );
     };
 
     render() {
@@ -72,7 +98,12 @@ class App extends React.Component {
                         To do List
                     </h1>
                 </div>
-                <Form addTask={this.addTask} />
+                <Form
+                    addTask={this.addTask}
+                    taskFilter={(e) => {
+                        this.taskFilter(e);
+                    }}
+                />
                 {this.state.tasks.map((task) => {
                     return (
                         <List
