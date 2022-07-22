@@ -20,6 +20,7 @@ class App extends React.Component {
             tasks: clonedTasks,
         });
     };
+    deleteTask = () => {};
     render() {
         return (
             <div className="md:container">
@@ -31,7 +32,11 @@ class App extends React.Component {
                 <Form addTask={this.addTask} />
                 {this.state.tasks.map((task) => {
                     return (
-                        <List task={task.description} status={task.status} />
+                        <List
+                            task={task.description}
+                            status={task.status}
+                            deleteTask={this.deleteTask}
+                        />
                     );
                 })}
             </div>
