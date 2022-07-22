@@ -22,7 +22,6 @@ class App extends React.Component {
         });
     };
     render() {
-        console.log(this.state.tasks);
         return (
             <div className="md:container">
                 <div>
@@ -31,6 +30,7 @@ class App extends React.Component {
                     </h1>
                 </div>
                 <Form addTask={this.addTask} />
+                <List tasks={this.state.tasks} />
             </div>
         );
     }
