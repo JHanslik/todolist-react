@@ -15,7 +15,7 @@ class Form extends React.Component {
         });
     };
     handleSubmit = () => {
-        this.props.addTask(this.state.task);
+        this.props.addTask;
         this.setState({
             task: "",
         });
