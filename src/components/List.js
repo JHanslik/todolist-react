@@ -2,7 +2,9 @@ import React from "react";
 
 class List extends React.Component {
     render() {
-        return console.log("hello world");
+        console.log("list");
+        console.log(this.props.tasks);
+        return;
     }
 }
 
