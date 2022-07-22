@@ -20,6 +20,9 @@ class App extends React.Component {
         this.setState({
             tasks: clonedTasks,
         });
+        deleteTask = () =>{
+
+        }
     };
     render() {
         return (
@@ -31,6 +34,8 @@ class App extends React.Component {
                 </div>
                 <Form addTask={this.addTask} />
                 <List tasks={this.state.tasks} />
+                <List deleteTask={this.deleteTask} />
+
             </div>
         );
     }
