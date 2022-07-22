@@ -20,7 +20,14 @@ class App extends React.Component {
             tasks: clonedTasks,
         });
     };
-    deleteTask = () => {};
+    deleteTask = (task) => {
+        const clonedTasks = [...this.state.tasks];
+        const index = clonedTasks.indexOf(task);
+        clonedTasks.splice(index, 1);
+        this.setState({
+            tasks: clonedTasks,
+        });
+    };
     render() {
         return (
             <div className="md:container">
@@ -35,7 +42,9 @@ class App extends React.Component {
                         <List
                             task={task.description}
                             status={task.status}
-                            deleteTask={this.deleteTask}
+                            deleteTask={() => {
+                                this.deleteTask(task);
+                            }}
                         />
                     );
                 })}
