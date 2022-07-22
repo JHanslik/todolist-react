@@ -4,25 +4,34 @@ import List from "./components/List";
 import "./App.css";
 
 class App extends React.Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
-            tasks: []
-        }
+            tasks: [],
+        };
     }
-    addTask = (taskTodo)=>{
-
-console.log(taskTodo)
-    }
+    addTask = (taskTodo) => {
+        console.log(taskTodo);
+        let clonedTasks = [...this.state.tasks];
+        clonedTasks = [
+            { description: taskTodo, status: "To do" },
+            ...this.state.tasks,
+        ];
+        this.setState({
+            tasks: clonedTasks,
+        });
+    };
     render() {
+        console.log(this.state.tasks);
         return (
-            <>
-            <div>
-                <h1 className="text-3xl text-purple-400">Hello world!</h1>
-
+            <div className="md:container">
+                <div>
+                    <h1 className="text-6xl text-center place-items-center">
+                        To do List
+                    </h1>
+                </div>
+                <Form addTask={this.addTask} />
             </div>
-            <Form addTask={this.state.addTask}/>
-            </>
         );
     }
 }
