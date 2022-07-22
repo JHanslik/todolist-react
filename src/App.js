@@ -94,7 +94,7 @@ class App extends React.Component {
         return (
             <div className="md:container">
                 <div>
-                    <h1 className="text-6xl text-center place-items-center">
+                    <h1 className="text-6xl text-center place-items-center m-10">
                         To do List
                     </h1>
                 </div>
