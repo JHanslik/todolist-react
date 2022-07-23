@@ -15,3 +15,27 @@ body {
 .line:last-child {
     border-radius: 0 0 0.5rem 0.5rem;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #384150 rgba(0, 0, 0, 0);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+    cursor: pointer;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #384150;
+    border-radius: 10px;
+    border: 0px solid rgba(0, 0, 0, 0);
+}

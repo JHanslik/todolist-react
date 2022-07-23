@@ -9,7 +9,9 @@ class List extends React.Component {
             <div className="line">
                 {!this.props.editingStatus ? (
                     <div className="flex place-items-center">
-                        <p className="flex-1 ml-5">{this.props.task}</p>
+                        <p className="overflow-auto flex-1 ml-5">
+                            {this.props.task}
+                        </p>
                         <p className="mx-10">{this.props.status}</p>
                         <button
                             type="button"
